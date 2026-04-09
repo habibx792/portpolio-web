@@ -1,40 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Ghulam Habib · Software Engineer</title>
   <!-- Google Fonts + reset -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800;14..32,900&display=swap"
+    rel="stylesheet">
   <!-- Font Awesome 6 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
-    /* ---------- CSS variables: Light mode (default) ---------- */
+    /* ---------- CSS variables: DARK MODE (default) ---------- */
     :root {
-      --bg-gradient-start: #f9fafc;
-      --bg-gradient-end: #f1f4fa;
-      --card-bg: rgba(255, 255, 255, 0.85);
-      --card-border: rgba(255, 255, 255, 0.5);
-      --text-primary: #111827;
-      --text-secondary: #334155;
-      --text-muted: #5b6e8c;
-      --badge-bg: #eef2ff;
-      --badge-text: #1e40af;
-      --border-light: #e2e8f0;
-      --accent: #2563eb;
-      --accent-dark: #1e40af;
-      --btn-primary-bg: #0f172a;
-      --btn-primary-hover: #1e293b;
-      --card-hover-shadow: rgba(0, 0, 0, 0.12);
-      --github-stats-bg: #f8fafc;
-      --github-stats-text: #334155;
-      --name-glow: rgba(37, 99, 235, 0.15);
-      --navbar-bg: rgba(255, 255, 255, 0.7);
-      --navbar-shadow: rgba(0, 0, 0, 0.05);
-    }
-
-    /* Dark theme class (explicit override) */
-    body.dark {
       --bg-gradient-start: #0a0c10;
       --bg-gradient-end: #12141c;
       --card-bg: rgba(18, 20, 28, 0.85);
@@ -55,6 +34,32 @@
       --name-glow: rgba(96, 165, 250, 0.2);
       --navbar-bg: rgba(18, 20, 28, 0.8);
       --navbar-shadow: rgba(0, 0, 0, 0.2);
+      --icon-glow: 0 0 8px rgba(96, 165, 250, 0.3);
+    }
+
+    /* Light theme (override when .light class is added to body) */
+    body.light {
+      --bg-gradient-start: #f9fafc;
+      --bg-gradient-end: #f1f4fa;
+      --card-bg: rgba(255, 255, 255, 0.85);
+      --card-border: rgba(255, 255, 255, 0.5);
+      --text-primary: #111827;
+      --text-secondary: #334155;
+      --text-muted: #5b6e8c;
+      --badge-bg: #eef2ff;
+      --badge-text: #1e40af;
+      --border-light: #e2e8f0;
+      --accent: #2563eb;
+      --accent-dark: #1e40af;
+      --btn-primary-bg: #0f172a;
+      --btn-primary-hover: #1e293b;
+      --card-hover-shadow: rgba(0, 0, 0, 0.12);
+      --github-stats-bg: #f8fafc;
+      --github-stats-text: #334155;
+      --name-glow: rgba(37, 99, 235, 0.15);
+      --navbar-bg: rgba(255, 255, 255, 0.7);
+      --navbar-shadow: rgba(0, 0, 0, 0.05);
+      --icon-glow: 0 0 6px rgba(37, 99, 235, 0.2);
     }
 
     * {
@@ -78,7 +83,7 @@
       padding: 2rem 1.5rem 4rem;
     }
 
-    /* ----- Beautiful Navigation Bar ----- */
+    /* ----- Beautiful Navigation Bar (enhanced) ----- */
     .navbar {
       position: sticky;
       top: 0;
@@ -108,6 +113,11 @@
       -webkit-background-clip: text;
       color: transparent;
       letter-spacing: -0.3px;
+      transition: transform 0.2s;
+    }
+
+    .nav-logo:hover {
+      transform: scale(1.02);
     }
 
     .nav-links {
@@ -121,8 +131,24 @@
       text-decoration: none;
       color: var(--text-secondary);
       font-weight: 500;
-      transition: color 0.2s;
+      transition: all 0.2s;
       font-size: 0.95rem;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
     }
 
     .nav-links a:hover {
@@ -149,13 +175,14 @@
       background: var(--badge-bg);
       border-color: var(--accent);
       transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .theme-toggle i {
       font-size: 1.1rem;
     }
 
-    /* glassmorphic card */
+    /* glassmorphic card (extra polish) */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(8px);
@@ -191,6 +218,7 @@
       margin-bottom: 0.5rem;
       color: var(--text-primary);
       letter-spacing: -0.3px;
+      animation: fadeInUp 0.6s ease;
     }
 
     .role-badge {
@@ -208,6 +236,12 @@
       padding: 0.3rem 1rem;
       border-radius: 40px;
       backdrop-filter: blur(2px);
+      transition: all 0.2s;
+    }
+
+    .role-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
     .hero h1 {
@@ -234,6 +268,11 @@
       background: var(--accent);
       border-radius: 4px;
       opacity: 0.6;
+      transition: width 0.3s;
+    }
+
+    .hero h1:hover::after {
+      width: 100px;
     }
 
     .hero-title {
@@ -250,6 +289,7 @@
       max-width: 550px;
       margin-bottom: 1.8rem;
       font-size: 1rem;
+      line-height: 1.6;
     }
 
     .contact-links {
@@ -278,12 +318,13 @@
       background: var(--btn-primary-bg);
       border: 1px solid var(--btn-primary-bg);
       color: white;
-      box-shadow: 0 4px 8px -4px rgba(15,23,42,0.2);
+      box-shadow: 0 4px 8px -4px rgba(15, 23, 42, 0.2);
     }
 
     .btn-primary:hover {
       background: var(--btn-primary-hover);
       transform: translateY(-2px);
+      box-shadow: 0 8px 16px -6px var(--accent-dark);
     }
 
     .btn-outline:hover {
@@ -307,9 +348,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.2);
-      border: 3px solid rgba(255,255,255,0.3);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.3);
+      border: 3px solid rgba(255, 255, 255, 0.2);
       overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .avatar-circle:hover {
+      transform: scale(1.02);
+      box-shadow: 0 30px 40px -12px rgba(0, 0, 0, 0.4);
     }
 
     .avatar-circle img {
@@ -350,7 +397,7 @@
       text-decoration: none;
       color: var(--text-primary);
       font-weight: 500;
-      transition: all 0.2s;
+      transition: all 0.25s;
       border: 1px solid var(--border-light);
       flex: 1 1 auto;
       min-width: 180px;
@@ -361,33 +408,80 @@
       font-size: 1.8rem;
       width: 32px;
       text-align: center;
+      filter: drop-shadow(var(--icon-glow));
     }
 
     .social-card:hover {
       background: var(--badge-bg);
       border-color: var(--accent);
-      transform: translateY(-4px);
-      box-shadow: 0 14px 24px -12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-5px);
+      box-shadow: 0 18px 28px -12px rgba(0, 0, 0, 0.2);
     }
 
-    /* platform colors */
-    .github { color: #181717; }
-    .linkedin { color: #0A66C2; }
-    .email { color: #EA4335; }
-    .leetcode { color: #FFA116; }
-    .codeforces { color: #1E88E5; }
-    .monkeytype { color: #E2B714; }
-    .codechef { color: #5B4638; }
-    .hackerrank { color: #2EC866; }
+    /* platform colors - light mode specific handled via body.light */
+    .github {
+      color: #e2e8f0;
+    }
 
-    body.dark .github { color: #e2e8f0; }
-    body.dark .linkedin { color: #60a5fa; }
-    body.dark .email { color: #f87171; }
-    body.dark .leetcode { color: #FFB84D; }
-    body.dark .codeforces { color: #64B5F6; }
-    body.dark .monkeytype { color: #FFD966; }
-    body.dark .codechef { color: #D4B895; }
-    body.dark .hackerrank { color: #4ADE80; }
+    .linkedin {
+      color: #60a5fa;
+    }
+
+    .email {
+      color: #f87171;
+    }
+
+    .leetcode {
+      color: #FFB84D;
+    }
+
+    .codeforces {
+      color: #64B5F6;
+    }
+
+    .monkeytype {
+      color: #FFD966;
+    }
+
+    .codechef {
+      color: #D4B895;
+    }
+
+    .hackerrank {
+      color: #4ADE80;
+    }
+
+    body.light .github {
+      color: #181717;
+    }
+
+    body.light .linkedin {
+      color: #0A66C2;
+    }
+
+    body.light .email {
+      color: #EA4335;
+    }
+
+    body.light .leetcode {
+      color: #FFA116;
+    }
+
+    body.light .codeforces {
+      color: #1E88E5;
+    }
+
+    body.light .monkeytype {
+      color: #E2B714;
+    }
+
+    body.light .codechef {
+      color: #5B4638;
+    }
+
+    body.light .hackerrank {
+      color: #2EC866;
+    }
 
     .footer-note {
       text-align: center;
@@ -401,6 +495,23 @@
     .footer-note a {
       color: var(--accent);
       text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     @media (max-width: 700px) {
@@ -409,39 +520,48 @@
         text-align: center;
         padding: 1.5rem;
       }
+
       .hero-title {
         border-left: none;
         text-align: center;
         padding-left: 0;
       }
+
       .contact-links {
         justify-content: center;
       }
+
       .section-title {
         font-size: 1.6rem;
       }
+
       .avatar-circle {
         width: 140px;
         height: 140px;
       }
+
       .role-badge {
         justify-content: center;
       }
+
       .hero h1::after {
         left: 50%;
         transform: translateX(-50%);
         width: 80px;
       }
+
       .nav-container {
         flex-direction: column;
       }
+
       .nav-links {
         justify-content: center;
       }
     }
   </style>
 </head>
-<body>
+
+<body class="dark"> <!-- DARK MODE AS DEFAULT -->
   <!-- Beautiful Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
@@ -452,8 +572,8 @@
         <a href="#github">GitHub</a>
         <a href="#network">Network</a>
         <button id="themeToggleBtn" class="theme-toggle">
-          <i class="fas fa-moon"></i> 
-          <span>Dark Mode</span>
+          <i class="fas fa-sun"></i>
+          <span>Light Mode</span>
         </button>
       </div>
     </div>
@@ -473,8 +593,8 @@
         </div>
         <div class="hero-title">crafting digital solutions with clean code & creativity</div>
         <p class="hero-desc">
-          Passionate software engineer specialized in full-stack development, 
-          system design, and open-source contributions. I turn complex ideas 
+          Passionate software engineer specialized in full-stack development,
+          system design, and open-source contributions. I turn complex ideas
           into elegant, high-performance applications.
         </p>
         <div class="contact-links">
@@ -488,10 +608,8 @@
       </div>
       <div class="hero-avatar">
         <div class="avatar-circle">
-          <img src="images/dp.jpeg"
-               alt="Ghulam Habib"
-               style="width:100%; height:100%; object-fit: cover;"
-               onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=2563eb&color=fff&name=GH';">
+          <img src="images/dp.jpeg" alt="Ghulam Habib" style="width:100%; height:100%; object-fit: cover;"
+            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=2563eb&color=fff&name=GH';">
         </div>
       </div>
     </div>
@@ -547,20 +665,22 @@
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
         <div>
           <div style="font-weight: 700; font-size: 1.3rem; display: flex; gap: 8px; align-items: center;">
-            <i class="fab fa-github" style="color:var(--accent);"></i> 
+            <i class="fab fa-github" style="color:var(--accent);"></i>
             GitHub presence
           </div>
           <p style="color: var(--text-secondary); margin-top: 8px; max-width: 550px;">
-            Explore my repositories, open-source contributions, and latest commits. 
+            Explore my repositories, open-source contributions, and latest commits.
             You can also search <strong>"habibx792"</strong> on GitHub.
           </p>
         </div>
-        <a href="https://github.com/habibx792?tab=repositories" target="_blank" class="btn btn-primary" style="background: var(--btn-primary-bg);">
+        <a href="https://github.com/habibx792?tab=repositories" target="_blank" class="btn btn-primary"
+          style="background: var(--btn-primary-bg);">
           <i class="fab fa-github"></i> view repositories
         </a>
       </div>
       <div style="margin-top: 1.5rem; background: var(--github-stats-bg); border-radius: 1rem; padding: 0.8rem 1rem;">
-        <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center; color: var(--github-stats-text);">
+        <div
+          style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: space-between; align-items: center; color: var(--github-stats-text);">
           <div><i class="fas fa-code-branch"></i> 22+ public repos</div>
           <div><i class="fas fa-star"></i> featured: devtools, backend libs, frontend dashboards</div>
           <div><i class="fas fa-user-friends"></i> active collaborator</div>
@@ -570,7 +690,7 @@
 
     <!-- Professional network section -->
     <div id="network" style="margin: 2.5rem 0 1rem;">
-      <div class="section-title"><i class="fas fa-link"></i>  professional network</div>
+      <div class="section-title"><i class="fas fa-link"></i> professional network</div>
       <div class="social-grid" style="margin-bottom: 1rem;">
         <a href="https://www.linkedin.com/in/ghulam-habib-248185323/" target="_blank" class="social-card">
           <i class="fab fa-linkedin linkedin" style="font-size: 2rem;"></i>
@@ -582,73 +702,73 @@
           <span><strong>GitHub</strong> · code & projects</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="#" class="social-card" id="soLink">
-          <i class="fab fa-stack-overflow" style="color:#F48024;"></i>
-          <span><strong>Stack Overflow</strong> · dev insights</span>
-          <i class="fas fa-arrow-right"></i>
-        </a>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer-note">
-      <p><i class="fas fa-heart" style="color: #ef4444;"></i> designed with clarity · Ghulam Habib — software engineer</p>
-      <p style="margin-top: 8px;">
-        <a href="https://github.com/habibx792" style="color: var(--accent); text-decoration: none;">GitHub: habibx792</a> &nbsp;|&nbsp;
-        <a href="mailto:ghulamhabib.x@gmail.com" style="color: var(--accent); text-decoration: none;">ghulamhabib.x@gmail.com</a>
+      <p><i class="fas fa-heart" style="color: #ef4444;"></i> designed with clarity · Ghulam Habib — software engineer
       </p>
-      <p style="margin-top: 12px; font-size: 0.75rem;">© 2026 — portfolio | every line reflects passion for engineering</p>
+      <p style="margin-top: 8px;">
+        <a href="https://github.com/habibx792" style="color: var(--accent); text-decoration: none;">GitHub:
+          habibx792</a> &nbsp;|&nbsp;
+        <a href="mailto:ghulamhabib.x@gmail.com"
+          style="color: var(--accent); text-decoration: none;">ghulamhabib.x@gmail.com</a>
+      </p>
+      <p style="margin-top: 12px; font-size: 0.75rem;">© 2026 — portfolio | every line reflects passion for engineering
+      </p>
     </div>
   </div>
 
   <script>
-    (function() {
-      // Theme toggle functionality
+    (function () {
       const toggleBtn = document.getElementById('themeToggleBtn');
       const icon = toggleBtn.querySelector('i');
       const textSpan = toggleBtn.querySelector('span');
-      
-      // Check for saved preference
+
+      // Default: dark mode (body has no 'light' class, we add 'light' for light theme)
+      // But we set initial body class to "dark"? Actually we set body class="dark" in HTML? No, we used body class="dark"? Wait we used class="dark"? In HTML we wrote <body class="dark">, but our CSS uses body.light for light overrides. So we need to adjust: 
+      // Let's make body have class "dark" by default, and toggle removes it and adds "light"? Better: use "light" class only for light mode. So default body has no "light" class -> dark. Then toggle adds "light" class.
+      // But we also have body.dark selector? No, we have :root dark, and body.light overrides. So default (no class) is dark. Good.
+      // So we remove any class from body initially.
+      document.body.classList.remove('light');
+
+      // Check localStorage: if previously saved as 'light', apply light class.
       const savedTheme = localStorage.getItem('ghulamTheme');
-      if (savedTheme === 'dark') {
-        document.body.classList.add('dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        textSpan.textContent = 'Light Mode';
-      } else {
-        // default light, no class
-        document.body.classList.remove('dark');
+      if (savedTheme === 'light') {
+        document.body.classList.add('light');
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
         textSpan.textContent = 'Dark Mode';
+      } else {
+        // default dark
+        document.body.classList.remove('light');
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        textSpan.textContent = 'Light Mode';
       }
-      
+
       toggleBtn.addEventListener('click', () => {
-        if (document.body.classList.contains('dark')) {
-          document.body.classList.remove('dark');
-          localStorage.setItem('ghulamTheme', 'light');
-          icon.classList.remove('fa-sun');
-          icon.classList.add('fa-moon');
-          textSpan.textContent = 'Dark Mode';
-        } else {
-          document.body.classList.add('dark');
+        if (document.body.classList.contains('light')) {
+          // switch to dark
+          document.body.classList.remove('light');
           localStorage.setItem('ghulamTheme', 'dark');
           icon.classList.remove('fa-moon');
           icon.classList.add('fa-sun');
           textSpan.textContent = 'Light Mode';
+        } else {
+          // switch to light
+          document.body.classList.add('light');
+          localStorage.setItem('ghulamTheme', 'light');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          textSpan.textContent = 'Dark Mode';
         }
       });
-      
-      // Stack Overflow mock alert
-      const soLink = document.getElementById('soLink');
-      if (soLink) {
-        soLink.addEventListener('click', (e) => {
-          e.preventDefault();
-          alert("📚 Stack Overflow presence — I actively answer questions under 'habibx'. You can search my contributions!");
-        });
-      }
-      console.log("✨ Theme toggle + navbar ready — both light & dark beautifully styled");
+
+      console.log("✨ Final portfolio: dark mode default, smooth toggle, enhanced visuals");
     })();
   </script>
 </body>
+
 </html>
