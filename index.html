@@ -83,7 +83,7 @@
       padding: 2rem 1.5rem 4rem;
     }
 
-    /* ----- Beautiful Navigation Bar (enhanced) ----- */
+    /* ----- Navigation Bar polished ----- */
     .navbar {
       position: sticky;
       top: 0;
@@ -182,7 +182,7 @@
       font-size: 1.1rem;
     }
 
-    /* glassmorphic card (extra polish) */
+    /* glassmorphic card */
     .card {
       background: var(--card-bg);
       backdrop-filter: blur(8px);
@@ -404,7 +404,7 @@
       backdrop-filter: blur(4px);
     }
 
-    .social-card i {
+    .social-card i:first-child {
       font-size: 1.8rem;
       width: 32px;
       text-align: center;
@@ -418,7 +418,7 @@
       box-shadow: 0 18px 28px -12px rgba(0, 0, 0, 0.2);
     }
 
-    /* platform colors - light mode specific handled via body.light */
+    /* platform colors */
     .github {
       color: #e2e8f0;
     }
@@ -451,6 +451,10 @@
       color: #4ADE80;
     }
 
+    .resume-icon {
+      color: #a78bfa;
+    }
+
     body.light .github {
       color: #181717;
     }
@@ -481,6 +485,10 @@
 
     body.light .hackerrank {
       color: #2EC866;
+    }
+
+    body.light .resume-icon {
+      color: #7c3aed;
     }
 
     .footer-note {
@@ -561,8 +569,8 @@
   </style>
 </head>
 
-<body class="dark"> <!-- DARK MODE AS DEFAULT -->
-  <!-- Beautiful Navigation Bar -->
+<body>
+  <!-- Navigation Bar -->
   <nav class="navbar">
     <div class="nav-container">
       <div class="nav-logo">Ghulam Habib</div>
@@ -580,7 +588,7 @@
   </nav>
 
   <div class="container">
-    <!-- Main Hero Card -->
+    <!-- Hero Card -->
     <div class="card hero">
       <div class="hero-content">
         <div class="greeting">Hi 👋, I'm</div>
@@ -608,13 +616,13 @@
       </div>
       <div class="hero-avatar">
         <div class="avatar-circle">
-          <img src="images/dp.jpeg" alt="Ghulam Habib" style="width:100%; height:100%; object-fit: cover;"
-            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=2563eb&color=fff&name=GH';">
+          <img src="images/dp.jpeg" alt="Ghulam Habib"
+            onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?background=2563eb&color=fff&name=GH&bold=true&length=2&size=120';">
         </div>
       </div>
     </div>
 
-    <!-- Social & Professional Links (reordered) -->
+    <!-- Social & Professional Links (polished) -->
     <div id="connect" style="margin: 2rem 0 2rem 0;">
       <div class="section-title"><i class="fas fa-share-alt" style="margin-right: 12px;"></i> connect & explore</div>
       <div class="social-grid">
@@ -622,50 +630,57 @@
           <i class="fas fa-envelope email"></i>
           <span>ghulamhabib.se@gmail.com</span>
         </a>
-        <a href="https://github.com/habibx792" target="_blank" class="social-card">
+        <a href="https://github.com/habibx792" target="_blank" rel="noopener noreferrer" class="social-card">
           <i class="fab fa-github github"></i>
           <span>github.com/habibx792</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://www.linkedin.com/in/ghulam-habib-248185323/" target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/in/ghulam-habib-248185323/" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fab fa-linkedin linkedin"></i>
           <span>LinkedIn · Ghulam Habib</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://leetcode.com/u/GhulamHabib755/" target="_blank" class="social-card">
+        <a href="https://leetcode.com/u/GhulamHabib755/" target="_blank" rel="noopener noreferrer" class="social-card">
           <i class="fas fa-code leetcode"></i>
           <span>LeetCode · Ghulamhabib755</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://codeforces.com/profile/GhulamHabibX" target="_blank" class="social-card">
+        <a href="https://codeforces.com/profile/GhulamHabibX" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fas fa-chart-simple codeforces"></i>
           <span>Codeforces · GhulamHabibX</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://www.codechef.com/users/habibcodex123" target="_blank" class="social-card">
+        <a href="https://www.codechef.com/users/habibcodex123" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fas fa-utensils codechef"></i>
           <span>CodeChef · habibcodex123</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://www.hackerrank.com/profile/ghulamhabib_x" target="_blank" class="social-card">
+        <a href="https://www.hackerrank.com/profile/ghulamhabib_x" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fab fa-hackerrank hackerrank"></i>
           <span>HackerRank · ghulamhabib_x</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://monkeytype.com/profile/GhulamHabib" target="_blank" class="social-card">
+        <a href="https://monkeytype.com/profile/GhulamHabib" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fas fa-keyboard monkeytype"></i>
           <span>Monkeytype · GhulamHabib</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
-        <a href="https://drive.google.com/file/d/1XFhKSbTDPvrOiVTozOPlAlId694M9iXU/view?usp=sharing" target="_blank" class="social-card">
-         
-          <span>Resumes · GhulamHabib</span>
+        <!-- Resume card: added left icon for consistency, improved text -->
+        <a href="https://drive.google.com/file/d/1XFhKSbTDPvrOiVTozOPlAlId694M9iXU/view?usp=sharing" target="_blank"
+          rel="noopener noreferrer" class="social-card">
+          <i class="fas fa-file-alt resume-icon"></i>
+          <span>Resume · Ghulam Habib</span>
           <i class="fas fa-external-link-alt" style="font-size: 0.8rem; opacity: 0.6; margin-left: auto;"></i>
         </a>
       </div>
     </div>
 
-    <!-- GitHub presence card -->
+    <!-- GitHub presence card (enhanced clarity) -->
     <div id="github" class="card" style="padding: 1.8rem 2rem; margin-top: 1.5rem;">
       <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem;">
         <div>
@@ -678,8 +693,8 @@
             You can also search <strong>"habibx792"</strong> on GitHub.
           </p>
         </div>
-        <a href="https://github.com/habibx792?tab=repositories" target="_blank" class="btn btn-primary"
-          style="background: var(--btn-primary-bg);">
+        <a href="https://github.com/habibx792?tab=repositories" target="_blank" rel="noopener noreferrer"
+          class="btn btn-primary" style="background: var(--btn-primary-bg);">
           <i class="fab fa-github"></i> view repositories
         </a>
       </div>
@@ -693,16 +708,17 @@
       </div>
     </div>
 
-    <!-- Professional network section -->
+    <!-- Professional network section (refined) -->
     <div id="network" style="margin: 2.5rem 0 1rem;">
       <div class="section-title"><i class="fas fa-link"></i> professional network</div>
       <div class="social-grid" style="margin-bottom: 1rem;">
-        <a href="https://www.linkedin.com/in/ghulam-habib-248185323/" target="_blank" class="social-card">
+        <a href="https://www.linkedin.com/in/ghulam-habib-248185323/" target="_blank" rel="noopener noreferrer"
+          class="social-card">
           <i class="fab fa-linkedin linkedin" style="font-size: 2rem;"></i>
           <span><strong>LinkedIn</strong> · connect & follow</span>
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="https://github.com/habibx792" target="_blank" class="social-card">
+        <a href="https://github.com/habibx792" target="_blank" rel="noopener noreferrer" class="social-card">
           <i class="fab fa-github github"></i>
           <span><strong>GitHub</strong> · code & projects</span>
           <i class="fas fa-arrow-right"></i>
@@ -715,8 +731,8 @@
       <p><i class="fas fa-heart" style="color: #ef4444;"></i> designed with clarity · Ghulam Habib — software engineer
       </p>
       <p style="margin-top: 8px;">
-        <a href="https://github.com/habibx792" style="color: var(--accent); text-decoration: none;">GitHub:
-          habibx792</a> &nbsp;|&nbsp;
+        <a href="https://github.com/habibx792" target="_blank" rel="noopener noreferrer"
+          style="color: var(--accent); text-decoration: none;">GitHub: habibx792</a> &nbsp;|&nbsp;
         <a href="mailto:ghulamhabib.se@gmail.com"
           style="color: var(--accent); text-decoration: none;">ghulamhabib.se@gmail.com</a>
       </p>
@@ -731,38 +747,38 @@
       const icon = toggleBtn.querySelector('i');
       const textSpan = toggleBtn.querySelector('span');
 
-      // Default: dark mode (body has no 'light' class, we add 'light' for light theme)
-      // But we set initial body class to "dark"? Actually we set body class="dark" in HTML? No, we used body class="dark"? Wait we used class="dark"? In HTML we wrote <body class="dark">, but our CSS uses body.light for light overrides. So we need to adjust: 
-      // Let's make body have class "dark" by default, and toggle removes it and adds "light"? Better: use "light" class only for light mode. So default body has no "light" class -> dark. Then toggle adds "light" class.
-      // But we also have body.dark selector? No, we have :root dark, and body.light overrides. So default (no class) is dark. Good.
-      // So we remove any class from body initially.
-      document.body.classList.remove('light');
-
-      // Check localStorage: if previously saved as 'light', apply light class.
-      const savedTheme = localStorage.getItem('ghulamTheme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        textSpan.textContent = 'Dark Mode';
-      } else {
-        // default dark
+      // clean up any conflicting body classes and apply correct theme based on localStorage
+      function setThemeFromStorage() {
+        // remove any leftover light/dark classes to avoid conflicts (dark is default, no class needed)
         document.body.classList.remove('light');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        textSpan.textContent = 'Light Mode';
+        const saved = localStorage.getItem('ghulamTheme');
+        if (saved === 'light') {
+          document.body.classList.add('light');
+          icon.classList.remove('fa-sun');
+          icon.classList.add('fa-moon');
+          textSpan.textContent = 'Dark Mode';
+        } else {
+          // default dark (no light class)
+          document.body.classList.remove('light');
+          icon.classList.remove('fa-moon');
+          icon.classList.add('fa-sun');
+          textSpan.textContent = 'Light Mode';
+          if (saved !== 'dark') localStorage.setItem('ghulamTheme', 'dark');
+        }
       }
+
+      setThemeFromStorage();
 
       toggleBtn.addEventListener('click', () => {
         if (document.body.classList.contains('light')) {
-          // switch to dark
+          // switch to dark mode
           document.body.classList.remove('light');
           localStorage.setItem('ghulamTheme', 'dark');
           icon.classList.remove('fa-moon');
           icon.classList.add('fa-sun');
           textSpan.textContent = 'Light Mode';
         } else {
-          // switch to light
+          // switch to light mode
           document.body.classList.add('light');
           localStorage.setItem('ghulamTheme', 'light');
           icon.classList.remove('fa-sun');
@@ -771,7 +787,19 @@
         }
       });
 
-      console.log("✨ Final portfolio: dark mode default, smooth toggle, enhanced visuals");
+      // smooth scroll for anchor links (optional but enhances UX)
+      document.querySelectorAll('.nav-links a[href^="#"], .social-card[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          const targetId = this.getAttribute('href');
+          if (targetId && targetId !== '#') {
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              e.preventDefault();
+              targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
     })();
   </script>
 </body>
